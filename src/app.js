@@ -2,14 +2,31 @@ window.$ = window.jQuery = require('./libs/jquery');
 
 
 $(document).ready(function () {
-    let root = $('#simple');
-    templateLoader.init(root, () => {
-        root.jmpress();
+    let root = $('#slides');
+    slidesLoader.init(root, () => {
+        setTimeout(() => {
+            Prism.highlightAll();
 
+        }, 1000);
+        root.jmpress();
     });
 });
 
-let templateLoader = {
+let slidesLoader = {
+    _slidesOrder: [
+        'intro',
+        'about_me',
+        'agenda',
+        'components_general',
+        'components_types',
+        'dumb_component',
+        'stateful_component',
+        'routed_component',
+        'directives',
+        'content_projection',
+        'template_syntax',
+        'data_flow',
+    ],
     _root: null,
     _templates: [],
     _afterLoaded: function () {},
@@ -22,9 +39,14 @@ let templateLoader = {
 
     _render() {
         this._templates.sort((a, b) => {
-            a.id > b.id
+            return a.index - b.index
         }).map((item) => {
-            this._root.append(item.html);
+            let el = $.parseHTML(
+                '<div class="step" data-x="' + item.index * 1200 + '">' +
+                    item.html +
+                '</div >'
+            );
+            this._root.append(el);
         });
 
         this._afterLoaded();
@@ -38,10 +60,19 @@ let templateLoader = {
             let name = el.replace ('.html', '');
             fs.readFile (normalizedPath + '/' + el, 'utf8', (err, html) => {
                 read++;
-                this._templates.push({
-                    id: parseInt(name),
-                    html: html
-                });
+                let parts = name.split('_');
+                parts.shift();
+                name = parts.join('_');
+                let index = this._slidesOrder.indexOf(name);
+                if (index > -1) {
+                    this._templates.push({
+                        index: this._slidesOrder.indexOf(name),
+                        name: name,
+                        html: html
+                    });
+                } else {
+                    console.log('File: ' + el + ' not included in the slides list');
+                }
 
                 if (read === arr.length) {
                     this._render();
