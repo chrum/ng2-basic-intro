@@ -1,3 +1,4 @@
+const { electron } = require('electron');
 window.$ = window.jQuery = require('./libs/jquery');
 
 
@@ -10,6 +11,17 @@ $(document).ready(function () {
         }, 1000);
         root.jmpress();
     });
+    let zoomLevel = 1;
+    window.addEventListener('keypress', (event) => {
+        if (event.keyCode === 43) {
+            zoomLevel += 0.1;
+            require('electron').webFrame.setZoomFactor(zoomLevel);
+
+        } else if (event.keyCode === 45) {
+            zoomLevel -= 0.1;
+            require('electron').webFrame.setZoomFactor(zoomLevel);
+        }
+    })
 });
 
 let slidesLoader = {
