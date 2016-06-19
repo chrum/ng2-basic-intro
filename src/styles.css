@@ -4,6 +4,7 @@ body {
     min-height: 740px;
     background-color: #ddd;
     -webkit-font-smoothing: antialiased;
+    overflow: hidden;
 }
 
 #slides div {
@@ -13,7 +14,7 @@ body {
 /** STEP STYLES **/
 .step {
     width: 1000px;
-    height: 500px;
+    height: 600px;
     font-size: 1em;
     min-height: 500px;
     background-color: white;
@@ -39,7 +40,7 @@ body {
 
 /* fade out inactive slides */
 .step:not(.active) {
-    opacity: 0.1;
+    opacity: 0.02;
 }
 
 /* hint on the first slide */
@@ -128,4 +129,9 @@ body {
     .step:not(.active) {
         opacity: 1;
     }
+}
+
+.window-content .pane-group,
+.window-content .pane {
+    overflow: hidden;
 }

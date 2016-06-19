@@ -1,23 +1,29 @@
 const { electron } = require('electron');
 window.$ = window.jQuery = require('./libs/jquery');
 
-
 $(document).ready(function () {
     let root = $('#slides');
     slidesLoader.init(root, () => {
         setTimeout(() => {
+            $('#step-1').click();
             Prism.highlightAll();
-
         }, 1000);
-        root.jmpress();
+        root.jmpress({
+            viewPort: {
+                maxScale: 1,
+                zoomable: 10
+            }
+        });
     });
     let zoomLevel = 1;
+    let zoomInCodes = [43, 9];
+    let zoomOutCodes = [45, 15];
     window.addEventListener('keypress', (event) => {
-        if (event.keyCode === 43) {
+        if (zoomInCodes.indexOf(event.keyCode) > -1) {
             zoomLevel += 0.1;
             require('electron').webFrame.setZoomFactor(zoomLevel);
 
-        } else if (event.keyCode === 45) {
+        } else if (zoomOutCodes.indexOf(event.keyCode) > -1) {
             zoomLevel -= 0.1;
             require('electron').webFrame.setZoomFactor(zoomLevel);
         }
@@ -26,6 +32,9 @@ $(document).ready(function () {
 
 let slidesLoader = {
     _slidesOrder: [
+        'dumb_component'
+    ],
+    _allSlides: [
         'intro',
         'about_me',
         'agenda',
