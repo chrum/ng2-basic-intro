@@ -131,6 +131,10 @@ body {
     }
 }
 
+.window-content {
+    margin: 2em;
+}
+
 .window-content .pane-group,
 .window-content .pane {
     overflow: hidden;

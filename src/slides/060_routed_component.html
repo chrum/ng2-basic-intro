@@ -1,1 +1,90 @@
-routed
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h2 class="title">Routed component</h2>
+    </header>
+
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane">
+                <h4>
+                    States and services aware
+                </h4>
+                <h4>
+                    Contains other components, renders them
+                </h4>
+                <h4>
+                    Route definitions
+                </h4>
+                <h4>
+                    Inputs carry route data
+                </h4>
+            </div>
+            <div class="pane" data-jmpress="drive-up after prev">
+                <pre class="line-numbers">
+                    <code>
+                        import { Component } from '@angular/core';
+                    </code>
+                </pre>
+
+                <pre class=" line-numbers" data-start="2" data-jmpress="drive-up after prev">
+                    <code>
+                        @Component({
+                            selector: 'hello',
+                            template: '<p>Hello, <strong> {{name}} </strong></p>'
+                        })
+                    </code>
+                </pre>
+
+                <pre class=" line-numbers" data-start="6" data-jmpress="drive-up after prev">
+                    <code>
+                        export class Hello {
+                            constructor() {
+                                this.name = 'World';
+                            }
+                        }
+                    </code>
+                </pre>
+                <br/>
+                <br/>
+
+                <div data-jmpress="drive-up after prev" style="text-align: center" >
+                    <pre class="language-markup" >
+                        <code class="language-markup">
+    <!--
+                                    . . .
+                                <hello></hello>
+                                    . . .
+    -->
+                                . . .<br />
+                            &lt;hello&gt;&lt;/hello&gt;<br />
+                            . . .
+                        </code>
+                    </pre>
+                    <span class="icon icon-down-bold"></span>
+                    <pre class="language-markup">
+                        <code class="language-markup">
+    <!--
+                            <hello>
+                                <p>
+                                    Hello <strong>World</strong>
+                                </p>
+                            </hello>
+    -->
+                                . . .<br />
+                            &lt;hello&gt;<br />
+                                &lt;p&gt;<br />
+                                    Hello &lt;strong&gt;World&lt;/strong&gt;<br />
+                                &lt;/p&gt;<br />
+                            &lt;/hello&gt;
+                            . . .
+                        </code>
+                    </pre>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

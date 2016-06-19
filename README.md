@@ -6,7 +6,7 @@
 # Clone this repository
 git clone https://github.com/chrum/ng2-basic-intro
 # Go into the repository
-cd ng2-intro
+cd ng2-basic-intro
 # Install dependencies and run the app
 npm install && npm start
 ```

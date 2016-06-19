@@ -6,7 +6,15 @@
     <div class="window-content">
         <div class="pane-group">
             <div class="pane">
-
+                    <h4>
+                        Have a template
+                    </h4>
+                    <h4>
+                        Gets data from INPUTS - property bindings
+                    </h4>
+                    <h4>
+                        Emits events with data - OUTPUTS
+                    </h4>
             </div>
             <div class="pane" data-jmpress="drive-up after prev">
                 <pre class="line-numbers">
@@ -18,54 +26,49 @@
                 <pre class=" line-numbers" data-start="2" data-jmpress="drive-up after prev">
                     <code>
                         @Component({
-                            selector: 'hello',
-                            template: '<p>Hello, <strong> {{name}} </strong></p>'
+                            selector: 'numbered-row',
+                            inputs:['number', 'text'],
+                            template: '<p>{{ content }}</p>'
                         })
                     </code>
                 </pre>
 
                 <pre class=" line-numbers" data-start="6" data-jmpress="drive-up after prev">
                     <code>
-                        export class Hello {
-                            constructor() {
-                                this.name = 'World';
+                        export default class NumberedRow {
+                            constructor () {}
+
+                            ngOnInit () {
+                                this.content = this.number + '. ' + this.text;
                             }
                         }
                     </code>
                 </pre>
                 <br/>
-                <br/>
-
                 <div data-jmpress="drive-up after prev" style="text-align: center" >
                     <pre class="language-markup" >
                         <code class="language-markup">
     <!--
-                                    . . .
-                                <hello></hello>
-                                    . . .
+                            <numbered-row
+                                    number="1"
+                                    text="First rows text"></numbered-row>
     -->
-                                . . .<br />
-                            &lt;hello&gt;&lt;/hello&gt;<br />
-                            . . .
+                            &lt;numbered-row <br />
+                                    number="1" <br />
+                                    text="First rows text"&gt;&lt;/numbered-row&gt;
                         </code>
                     </pre>
                     <span class="icon icon-down-bold"></span>
                     <pre class="language-markup">
                         <code class="language-markup">
     <!--
-                            <hello>
-                                <p>
-                                    Hello <strong>World</strong>
-                                </p>
-                            </hello>
+                            <numbered-row>
+                                <p>1. First row</p>
+                            </numbered-row>
     -->
-                                . . .<br />
-                            &lt;hello&gt;<br />
-                                &lt;p&gt;<br />
-                                    Hello &lt;strong&gt;World&lt;/strong&gt;<br />
-                                &lt;/p&gt;<br />
-                            &lt;/hello&gt;
-                            . . .
+                                                        &lt;numbered-row&gt;<br />
+                                &lt;p&gt;1. First row&lt;/p&gt;<br />
+                            &lt;/numbered-row&gt;
                         </code>
                     </pre>
                 </div>
