@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     template: '<p>{{ content }}</p>'
 })
 export class NumberedRow {
-    constructor () {}
+    constructor () { }
 
     ngOnInit () {
         this.content = this.number + '. ' + this.text;

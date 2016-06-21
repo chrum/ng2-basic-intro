@@ -7,82 +7,51 @@
         <div class="pane-group">
             <div class="pane">
                 <h4>
-                    States and services aware
+                    Components are alive!
                 </h4>
                 <h4>
-                    Contains other components, renders them
+                    <ul>
+                        <li>ngOnChanges</li>
+                        <li>ngOnInit</li>
+                        <li>ngDoCheck</li>
+                        <li>ngOnDestroy</li>
+                        <li>...</li>
+                    </ul>
                 </h4>
                 <h4>
-                    Route definitions
-                </h4>
-                <h4>
-                    Inputs carry route data
+                    Inspired by web components (Lifecycle callbacks)
                 </h4>
             </div>
             <div class="pane" data-jmpress="drive-up after prev">
                 <pre class="line-numbers">
                     <code>
-                        import { Component } from '@angular/core';
-                    </code>
-                </pre>
-
-                <pre class=" line-numbers" data-start="2" data-jmpress="drive-up after prev">
-                    <code>
                         @Component({
-                            selector: 'hello',
-                            template: '<p>Hello, <strong> {{name}} </strong></p>'
+                            selector: 'hooked',
+                            inputs:['text'],
+                            template: `<!--
+                                <h2>Input value: {{ text }}</h2>
+                                <p *ngFor="let c of cycles">{{ c }}</p>
+                            -->&lt;h2&gt;Input value: {{ text }}&lt;/h2&gt;<br />
+                                &lt;p *ngFor="let c of cycles"&gt;{{ c }}&lt;/p&gt;`
                         })
-                    </code>
-                </pre>
-
-                <pre class=" line-numbers" data-start="6" data-jmpress="drive-up after prev">
-                    <code>
-                        export class Hello {
-                            constructor() {
-                                this.name = 'World';
+                        export class Hooked {
+                            constructor () {
+                                this.cycles = [];
+                                this._register('constructor');
                             }
+                            _register(name) {
+                                this.cycles.push(name + ': ' + this.text);
+                            }
+                            ngOnInit () { this._register('ngOnInit') }
+                            ngOnChanges () { this._register('ngOnChanges') }
+                            ngOnDestroy () { alert('ngOnDestroy') }
                         }
                     </code>
                 </pre>
-                <br/>
-                <br/>
 
-                <div data-jmpress="drive-up after prev" style="text-align: center" >
-                    <pre class="language-markup" >
-                        <code class="language-markup">
-    <!--
-                                    . . .
-                                <hello></hello>
-                                    . . .
-    -->
-                                . . .<br />
-                            &lt;hello&gt;&lt;/hello&gt;<br />
-                            . . .
-                        </code>
-                    </pre>
-                    <span class="icon icon-down-bold"></span>
-                    <pre class="language-markup">
-                        <code class="language-markup">
-    <!--
-                            <hello>
-                                <p>
-                                    Hello <strong>World</strong>
-                                </p>
-                            </hello>
-    -->
-                                . . .<br />
-                            &lt;hello&gt;<br />
-                                &lt;p&gt;<br />
-                                    Hello &lt;strong&gt;World&lt;/strong&gt;<br />
-                                &lt;/p&gt;<br />
-                            &lt;/hello&gt;
-                            . . .
-                        </code>
-                    </pre>
+                <div style="text-align: center" data-jmpress="drive-up after prev">
+                    <img style="height: 130px" src="imgs/hooks.jpg"/>
                 </div>
-
-
-
             </div>
         </div>
     </div>

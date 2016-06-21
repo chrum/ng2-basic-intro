@@ -34,7 +34,8 @@ let slidesLoader = {
     _slidesOrder: [
         'dumb_component',
         'smart_component',
-        'routed_component'
+        'routed_component',
+        'component_lifecycle'
     ],
     _allSlides: [
         'intro',
@@ -45,6 +46,7 @@ let slidesLoader = {
         'dumb_component',
         'smart_component',
         'routed_component',
+        'component_lifecycle',
         'directives',
         'content_projection',
         'template_syntax',
