@@ -20,69 +20,42 @@
                 </h4>
             </div>
             <div class="pane" data-jmpress="drive-up after prev">
-                <pre class="line-numbers">
-                    <code>
-                        import { Component } from '@angular/core';
-                    </code>
-                </pre>
-
-                <pre class=" line-numbers" data-start="2" data-jmpress="drive-up after prev">
+                <pre class=" line-numbers">
                     <code>
                         @Component({
-                            selector: 'hello',
-                            template: '<p>Hello, <strong> {{name}} </strong></p>'
+                            selector: 'app',
+                            template: `<!--
+                                <ul>
+                                    <li *ngFor="let route of routes">
+                                        <button
+                                            (click)="go(route)">{{ route }}
+                                        </button>
+                                    </li>
+                                </ul>
+                                <router-outlet></router-outlet>-->
+                                &lt;ul&gt;<br />
+                                    &lt;li *ngFor="let route of routes"&gt;<br />
+                                        &lt;button
+                                            (click)="go(route)"&gt;{{ route }}
+                                        &lt;/button&gt;
+                                &lt;/li&gt;<br />
+                                &lt;/ul&gt;`,
+                            directives: [ROUTER_DIRECTIVES, Dumb]
                         })
-                    </code>
-                </pre>
-
-                <pre class=" line-numbers" data-start="6" data-jmpress="drive-up after prev">
-                    <code>
-                        export class Hello {
-                            constructor() {
-                                this.name = 'World';
+                        @RouteConfig([
+                            { path: '/Dumb', as: 'Dumb', component: Dumb },
+                            { path: '/Smart', as: 'Smart', component: Smart }
+                        ])
+                        class App {
+                            static get parameters () { return [[Router]]; }
+                            constructor(router) {
+                                this.router = router;
+                                this.routes = ['Dumb', 'Smart']
                             }
+                            go (to) { this.router.navigate(['/' + to]); }
                         }
                     </code>
                 </pre>
-                <br/>
-                <br/>
-
-                <div data-jmpress="drive-up after prev" style="text-align: center" >
-                    <pre class="language-markup" >
-                        <code class="language-markup">
-    <!--
-                                    . . .
-                                <hello></hello>
-                                    . . .
-    -->
-                                . . .<br />
-                            &lt;hello&gt;&lt;/hello&gt;<br />
-                            . . .
-                        </code>
-                    </pre>
-                    <span class="icon icon-down-bold"></span>
-                    <pre class="language-markup">
-                        <code class="language-markup">
-    <!--
-                            <hello>
-                                <p>
-                                    Hello <strong>World</strong>
-                                </p>
-                            </hello>
-    -->
-                                . . .<br />
-                            &lt;hello&gt;<br />
-                                &lt;p&gt;<br />
-                                    Hello &lt;strong&gt;World&lt;/strong&gt;<br />
-                                &lt;/p&gt;<br />
-                            &lt;/hello&gt;
-                            . . .
-                        </code>
-                    </pre>
-                </div>
-
-
-
             </div>
         </div>
     </div>

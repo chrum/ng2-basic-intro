@@ -33,7 +33,8 @@ $(document).ready(function () {
 let slidesLoader = {
     _slidesOrder: [
         'dumb_component',
-        'smart_component'
+        'smart_component',
+        'routed_component'
     ],
     _allSlides: [
         'intro',
@@ -47,7 +48,7 @@ let slidesLoader = {
         'directives',
         'content_projection',
         'template_syntax',
-        'data_flow',
+        'data_flow'
     ],
     _root: null,
     _templates: [],

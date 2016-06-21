@@ -23,15 +23,15 @@ class App {
     static get parameters () {
         return [[Router]];
     }
-    constructor(Router) {
-        this._router = Router;
+    constructor (Router) {
+        this.router = Router;
 
         this.routes = [
             'Dumb', 'Smart'
         ]
     }
-    navigate (to) {
-        this._router.navigate(['/' + to]);
+    go (to) {
+        this.router.navigate(['/' + to]);
     }
 }
 
