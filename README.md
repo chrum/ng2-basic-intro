@@ -9,6 +9,18 @@ git clone https://github.com/chrum/ng2-basic-intro
 cd ng2-basic-intro
 # Install dependencies and run the app
 npm install && npm start
+
+```
+
+To check examples
+```bash
+# Go into examples dir repository
+cd examples
+# Install dependencies
+npm install
+# Run examples
+npm start
+# Navigate in your webrowser to http://localhost:8080
 ```
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
