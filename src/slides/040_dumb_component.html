@@ -6,73 +6,78 @@
     <div class="window-content">
         <div class="pane-group">
             <div class="pane">
-                    <h4>
-                        Have a template
-                    </h4>
-                    <h4>
-                        Gets data from INPUTS - property bindings
-                    </h4>
-                    <h4>
-                        Emits events with data - OUTPUTS
-                    </h4>
+                <h4>
+                    Have a template
+                </h4>
+                <h4>
+                    Gets data from INPUTS - property bindings
+                </h4>
+                <h4>
+                    Emits events with data - OUTPUTS
+                </h4>
             </div>
-            <div class="pane" data-jmpress="drive-up after prev">
+            <div class="pane">
+                <div data-jmpress="drive-up after prev">
                 <pre class="line-numbers">
                     <code>
                         import { Component } from '@angular/core';
                     </code>
                 </pre>
+                </div>
 
-                <pre class=" line-numbers" data-start="2" data-jmpress="drive-up after prev">
+                <div data-jmpress="drive-up after prev">
+                <pre class="line-numbers" data-start="2">
                     <code>
                         @Component({
-                            selector: 'numbered-row',
-                            inputs:['number', 'text'],
-                            template: '<p>{{ content }}</p>'
+                        selector: 'numbered-row',
+                        inputs:['number', 'text'],
+                        template: '<p>{{ content }}</p>'
                         })
                     </code>
                 </pre>
+                </div>
 
-                <pre class=" line-numbers" data-start="6" data-jmpress="drive-up after prev">
+                <div data-jmpress="drive-up after prev">
+                <pre class="line-numbers" data-start="6">
                     <code>
                         export default class NumberedRow {
-                            constructor () {}
+                        constructor () {}
 
-                            ngOnInit () {
-                                this.content = this.number + '. ' + this.text;
-                            }
+                        ngOnInit () {
+                        this.content = this.number + '. ' + this.text;
+                        }
                         }
                     </code>
                 </pre>
-                <br/>
-                <div data-jmpress="drive-up after prev" style="text-align: center" >
-                    <pre class="language-markup" >
+                </div>
+
+                <div data-jmpress="drive-up after prev" style="text-align: center">
+                    <pre class="language-markup">
                         <code class="language-markup">
-    <!--
-                            <numbered-row
-                                    number="1"
-                                    text="First row"></numbered-row>
-    -->
-                            &lt;numbered-row <br />
-                                    number="1" <br />
-                                    text="First row"&gt;&lt;/numbered-row&gt;
+                            <!--
+                                                    <numbered-row
+                                                            number="1"
+                                                            text="First row"></numbered-row>
+                            -->
+                            &lt;numbered-row <br/>
+                            number="1" <br/>
+                            text="First row"&gt;&lt;/numbered-row&gt;
                         </code>
                     </pre>
                     <span class="icon icon-down-bold"></span>
                     <pre class="language-markup">
                         <code class="language-markup">
-    <!--
-                            <numbered-row>
-                                <p>1. First row</p>
-                            </numbered-row>
-    -->
-                                                        &lt;numbered-row&gt;<br />
-                                &lt;p&gt;1. First row&lt;/p&gt;<br />
+                            <!--
+                                                    <numbered-row>
+                                                        <p>1. First row</p>
+                                                    </numbered-row>
+                            -->
+                            &lt;numbered-row&gt;<br/>
+                            &lt;p&gt;1. First row&lt;/p&gt;<br/>
                             &lt;/numbered-row&gt;
                         </code>
                     </pre>
                 </div>
-
 
 
             </div>

@@ -1,8 +1,8 @@
 /** GENERAL **/
 body {
-    font-family: Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     min-height: 740px;
-    background-color: #ddd;
+    background-color: #154060;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
 }
@@ -11,30 +11,82 @@ body {
     transition: all 0.5s !important;
 }
 
+.toolbar {
+    background-color: #4cb050;
+    background-image: none;
+    box-shadow: none;
+    letter-spacing: 1px;
+    border-bottom: #ffffff;
+    border-bottom-width: medium;
+}
+
+.title {
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2.6em;
+    line-height: 1.8em;
+    letter-spacing: 1px;
+
+}
+
+h4 {
+    font-size: 1.6em;
+    line-height: 1.2em;
+    font-weight: 400;
+
+}
+
+h5 {
+    color: #fff;
+    font-size: 1em;
+    line-height: 1.2em;
+}
+
+#container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#footer {
+    width: 100%;
+    position: absolute;
+    bottom: 2%;
+    line-height: 1.2em;
+    text-align: center;
+}
+
+.line-numbers, .language-markup {
+    font-size: 1.1em;
+
+}
+
 /** STEP STYLES **/
 .step {
-    width: 1000px;
-    height: 600px;
-    font-size: 1em;
+    width: 1100px;
+    height: 680px;
     min-height: 500px;
-    background-color: white;
+    /*background-color: white;*/
 
     display: block;
 
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+    /*box-shadow: 0 2px 6px rgba(0, 0, 0, .1);*/
     border: 1px solid rgba(0, 0, 0, .3);
 
-    color: rgb(102, 102, 102);
-    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+    /*color: rgb(102, 102, 102);*/
+    /*text-shadow: 0 2px 2px rgba(0, 0, 0, .1);*/
 
-    letter-spacing: -1px;
+    /*letter-spacing: -1px;*/
 
     -webkit-box-sizing: border-box;
-    -moz-box-sizing:    border-box;
-    -ms-box-sizing:     border-box;
-    -o-box-sizing:      border-box;
-    box-sizing:         border-box;
-
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
 
 }
 
@@ -60,31 +112,32 @@ body {
     opacity: 0;
 
     -webkit-transform: translateY(400px);
-    -moz-transform:    translateY(400px);
-    -ms-transform:     translateY(400px);
-    -o-transform:      translateY(400px);
-    transform:         translateY(400px);
+    -moz-transform: translateY(400px);
+    -ms-transform: translateY(400px);
+    -o-transform: translateY(400px);
+    transform: translateY(400px);
 
     -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
-    -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
-    -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
-    -o-transition:      opacity 1s,      -o-transform 0.5s 1s;
-    transition:         opacity 1s,         transform 0.5s 1s;
+    -moz-transition: opacity 1s, -moz-transform 0.5s 1s;
+    -ms-transition: opacity 1s, -ms-transform 0.5s 1s;
+    -o-transition: opacity 1s, -o-transform 0.5s 1s;
+    transition: opacity 1s, transform 0.5s 1s;
 }
+
 .step-home + .hint {
     opacity: 1;
 
     -webkit-transition: opacity 1s 5s, -webkit-transform 0.5s;
-    -moz-transition:    opacity 1s 5s,    -moz-transform 0.5s;
-    -ms-transition:     opacity 1s 5s,     -ms-transform 0.5s;
-    -o-transition:      opacity 1s 5s,      -o-transform 0.5s;
-    transition:         opacity 1s 5s,         transform 0.5s;
+    -moz-transition: opacity 1s 5s, -moz-transform 0.5s;
+    -ms-transition: opacity 1s 5s, -ms-transform 0.5s;
+    -o-transition: opacity 1s 5s, -o-transform 0.5s;
+    transition: opacity 1s 5s, transform 0.5s;
 
     -webkit-transform: translateY(0px);
-    -moz-transform:    translateY(0px);
-    -ms-transform:     translateY(0px);
-    -o-transform:      translateY(0px);
-    transform:         translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px);
 }
 
 /** NOT SUPPORTED STYLES **/
@@ -99,9 +152,11 @@ body {
     body {
         background: white;
     }
+
     .hint {
         display: none;
     }
+
     #simple {
         width: auto;
         margin: 0 5%;
@@ -111,6 +166,7 @@ body {
         color: black;
         background: transparent;
     }
+
     .step {
         page-break-after: always;
         opacity: 1;
@@ -121,11 +177,12 @@ body {
         margin: 20px auto;
 
         -webkit-transition: rotate(0deg);
-        -moz-transition:    rotate(0deg);
-        -ms-transition:     rotate(0deg);
-        -o-transition:      rotate(0deg);
-        transition:         rotate(0deg);
+        -moz-transition: rotate(0deg);
+        -ms-transition: rotate(0deg);
+        -o-transition: rotate(0deg);
+        transition: rotate(0deg);
     }
+
     .step:not(.active) {
         opacity: 1;
     }
