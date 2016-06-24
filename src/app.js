@@ -69,7 +69,7 @@ let slidesLoader = {
             let el = $.parseHTML(
                 '<div class="step" data-x="' + item.index * 1200 + '">' +
                     item.html +
-                '</div >'
+                '</div >' 
             );
             this._root.append(el);
         });

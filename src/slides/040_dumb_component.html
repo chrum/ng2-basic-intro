@@ -29,9 +29,9 @@
                 <pre class="line-numbers" data-start="2">
                     <code>
                         @Component({
-                        selector: 'numbered-row',
-                        inputs:['number', 'text'],
-                        template: '<p>{{ content }}</p>'
+                            selector: 'numbered-row',
+                            inputs:['number', 'text'],
+                            template: '<p>{{ content }}</p>'
                         })
                     </code>
                 </pre>
@@ -41,11 +41,11 @@
                 <pre class="line-numbers" data-start="6">
                     <code>
                         export default class NumberedRow {
-                        constructor () {}
+                            constructor () {}
 
-                        ngOnInit () {
-                        this.content = this.number + '. ' + this.text;
-                        }
+                            ngOnInit () {
+                               this.content = this.number + '. ' + this.text;
+                            }
                         }
                     </code>
                 </pre>
@@ -60,8 +60,8 @@
                                                             text="First row"></numbered-row>
                             -->
                             &lt;numbered-row <br/>
-                            number="1" <br/>
-                            text="First row"&gt;&lt;/numbered-row&gt;
+                                number="1" <br/>
+                                text="First row"&gt;&lt;/numbered-row&gt;
                         </code>
                     </pre>
                     <span class="icon icon-down-bold"></span>
@@ -73,7 +73,7 @@
                                                     </numbered-row>
                             -->
                             &lt;numbered-row&gt;<br/>
-                            &lt;p&gt;1. First row&lt;/p&gt;<br/>
+                               &lt;p&gt;1. First row&lt;/p&gt;<br/>
                             &lt;/numbered-row&gt;
                         </code>
                     </pre>
@@ -83,5 +83,11 @@
             </div>
         </div>
     </div>
+
+    <footer class="toolbar toolbar-footer">
+        &copy Chrystian Ruminowicz
+    </footer>
 </div>
+
+
 

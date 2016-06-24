@@ -57,18 +57,18 @@
                  <pre class="line-numbers" data-start="4">
                     <code>
                         @Component({
-                        selector: 'numbered-list',
-                        directives: [NumberedRow],
-                        template: `<!--
-                                <numbered-row
-                                    *ngFor="let item of items; let i = index"
-                                    [number]="(i + 1)"
-                                    [text]="item"></numbered-row>-->
-                        &lt;numbered-row<br/>
-                        *ngFor="let item of items; let i = index"<br/>
-                        [number]="(i + 1)"<br/>
-                        [text]="item"&gt;&lt;/numbered-row&gt;
-                        `
+                            selector: 'numbered-list',
+                            directives: [NumberedRow],
+                            template: `<!--
+                                    <numbered-row
+                                        *ngFor="let item of items; let i = index"
+                                        [number]="(i + 1)"
+                                        [text]="item"></numbered-row>-->
+                            &lt;numbered-row<br/>
+                            *ngFor="let item of items; let i = index"<br/>
+                            [number]="(i + 1)"<br/>
+                            [text]="item"&gt;&lt;/numbered-row&gt;
+                            `
                         })
                     </code>
                 </pre>
@@ -78,12 +78,12 @@
                 <pre class="line-numbers" data-start="14">
                     <code>
                         export default class NumberedList {
-                        static get parameters () {
-                        return [[ListData]];
-                        }
-                        constructor (listData) {
-                        this.items = listData.getData();
-                        }
+                            static get parameters () {
+                                  return [[ListData]];
+                            }
+                            constructor (listData) {
+                                 this.items = listData.getData();
+                            }
                         }
                     </code>
                 </pre>
@@ -101,5 +101,8 @@
             </div>
         </div>
     </div>
+    <footer class="toolbar toolbar-footer">
+       <div id="footer"> &copy Chrystian Ruminowicz </div>
+    </footer>
 </div>
 
