@@ -7,6 +7,15 @@ body {
     overflow: hidden;
 }
 
+#MAIN {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s;
+}
+
 #slides div {
     transition: all 0.5s !important;
 }

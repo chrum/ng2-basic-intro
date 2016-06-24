@@ -1,0 +1,66 @@
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h2 class="title">Data flow</h2>
+    </header>
+
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane">
+                <h4>
+                    One way
+                </h4>
+                <h4>
+                    Contains other components, renders them
+                </h4>
+                <h4>
+                    Route definitions
+                </h4>
+                <h4>
+                    Inputs carry route data
+                </h4>
+            </div>
+            <div class="pane" data-jmpress="drive-up after prev">
+                <pre class="line-numbers">
+                    <code>
+                        @Component({
+                            selector: 'app',
+                            template: `<!--
+                                <ul>
+                                    <li *ngFor="let route of routes">
+                                        <button
+                                            (click)="go(route)">{{ route }}
+                                        </button>
+                                    </li>
+                                </ul>
+                                <router-outlet></router-outlet>-->
+                                &lt;ul&gt;<br />
+                                    &lt;li *ngFor="let route of routes"&gt;<br />
+                                        &lt;button
+                                            (click)="go(route)"&gt;{{ route }}
+                                        &lt;/button&gt;
+                                &lt;/li&gt;<br />
+                                &lt;/ul&gt;`,
+                            directives: [ROUTER_DIRECTIVES, Dumb]
+                        })
+                        @RouteConfig([
+                            { path: '/Dumb', as: 'Dumb', component: Dumb },
+                            { path: '/Smart', as: 'Smart', component: Smart }
+                        ])
+                        class App {
+                            static get parameters () { return [[Router]]; }
+                            constructor(router) {
+                                this.router = router;
+                                this.routes = ['Dumb', 'Smart']
+                            }
+                            go (to) { this.router.navigate(['/' + to]); }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <footer class="toolbar toolbar-footer">
+        &copy Chrystian Ruminowicz
+    </footer>
+</div>
+

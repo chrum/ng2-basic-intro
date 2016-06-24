@@ -5,7 +5,7 @@ import { bootstrap }  from '@angular/platform-browser-dynamic';
 import { Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { provide } from '@angular/core';
 import { LocationStrategy, Location, HashLocationStrategy } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ExceptionHandler, } from '@angular/core';
 
 import { Dumb } from './examples/dumb.component';
 import { Smart } from './examples/smart.component';
@@ -37,7 +37,16 @@ class App {
     }
 }
 
+class MyExceptionHandler {
+    call(error, stackTrace = null, reason = null) {
+        let message = error.rejection.originalException.message;
+        console.log(encodeURI('http://stackoverflow.com/search?q=' + message));
+        console.error(message);
+    }
+}
+
 bootstrap(App, [
     ROUTER_PROVIDERS,
-    provide(LocationStrategy, { useClass: HashLocationStrategy })
+    provide(LocationStrategy, { useClass: HashLocationStrategy }),
+    {provide: ExceptionHandler, useClass: MyExceptionHandler}
 ]);

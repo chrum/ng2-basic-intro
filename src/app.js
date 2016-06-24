@@ -1,37 +1,97 @@
 const { electron } = require('electron');
 window.$ = window.jQuery = require('./libs/jquery');
 
+let viewParams = {
+    zoomLevel: 1,
+    topOffset: 0,
+    leftOffset: 0
+};
+let zoomStep = 0.2;
+let offsetStep = 2;
+let saves = {};
+
+// Keys affecting zoom level and panning the view
+let zoomInCodes = [43, 9]; // + and ctrl+i
+let zoomOutCodes = [45, 15]; // - and /ctrl+o
+let W = 119;
+let S = 115;
+let A = 97;
+let D = 100;
+
+let mainContainer = $('#MAIN');
 $(document).ready(function () {
-    let root = $('#slides');
-    slidesLoader.init(root, () => {
+    mainContainer = $('#MAIN');
+    let slidesRoot = $('#slides');
+    slidesLoader.init(slidesRoot, () => {
         setTimeout(() => {
             $('#step-1').click();
             Prism.highlightAll();
         }, 1000);
-        root.jmpress({
+        slidesRoot.jmpress({
             viewPort: {
                 maxScale: 1,
                 zoomable: 10
             }
         });
     });
-    let zoomLevel = 1;
-    let zoomInCodes = [43, 9];
-    let zoomOutCodes = [45, 15];
+
+
     window.addEventListener('keypress', (event) => {
+        console.log(event.keyCode);
         if (zoomInCodes.indexOf(event.keyCode) > -1) {
-            zoomLevel += 0.1;
-            require('electron').webFrame.setZoomFactor(zoomLevel);
+            viewParams.zoomLevel += zoomStep;
+            let el = require('electron');
+            require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
 
         } else if (zoomOutCodes.indexOf(event.keyCode) > -1) {
-            zoomLevel -= 0.1;
-            require('electron').webFrame.setZoomFactor(zoomLevel);
+            viewParams.zoomLevel -= zoomStep;
+            require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+
+        } else if (event.keyCode === W) {
+            viewParams.topOffset -= offsetStep;
+            mainContainer.css('top', viewParams.topOffset + '%');
+
+        } else if (event.keyCode === S) {
+            viewParams.topOffset += offsetStep;
+            mainContainer.css('top', viewParams.topOffset + '%');
+
+        } else if (event.keyCode === A) {
+            viewParams.leftOffset -= offsetStep;
+            mainContainer.css('left', viewParams.leftOffset + '%');
+
+        } else if (event.keyCode === D) {
+            viewParams.leftOffset += offsetStep;
+            mainContainer.css('left', viewParams.leftOffset + '%');
+
+        // ctrl + digit from 1 to 9 save current view settings
+        } else if (event.keyCode >= 17 && event.keyCode <= 25) {
+            saveView(event.keyCode - 16);
+
+        // digit from 1 to 9 loads saved view settings
+        } else if (event.keyCode >= 49 && event.keyCode <= 57) {
+            loadView(event.keyCode - 48);
         }
+
+
     })
 });
 
+let saveView = function (saveId) {
+    saves[saveId] = JSON.stringify(viewParams);
+};
+
+let loadView = function (saveId) {
+    if (saves[saveId]) {
+        viewParams = JSON.parse(saves[saveId]);
+        require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+        mainContainer.css('top', viewParams.topOffset + '%');
+        mainContainer.css('left', viewParams.leftOffset + '%');
+    }
+};
+
 let slidesLoader = {
     _slidesOrder: [
+        'data_flow',
         'dumb_component',
         'smart_component',
         'routed_component',
