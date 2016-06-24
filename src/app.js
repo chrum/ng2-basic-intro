@@ -40,27 +40,28 @@ $(document).ready(function () {
         console.log(event.keyCode);
         if (zoomInCodes.indexOf(event.keyCode) > -1) {
             viewParams.zoomLevel += zoomStep;
-            let el = require('electron');
-            require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+            // require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+            mainContainer.css('transform', 'scale(' + viewParams.zoomLevel + ')');
 
         } else if (zoomOutCodes.indexOf(event.keyCode) > -1) {
             viewParams.zoomLevel -= zoomStep;
-            require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+            // require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+            mainContainer.css('transform', 'scale(' + viewParams.zoomLevel + ')');
 
         } else if (event.keyCode === W) {
-            viewParams.topOffset -= offsetStep;
-            mainContainer.css('top', viewParams.topOffset + '%');
-
-        } else if (event.keyCode === S) {
             viewParams.topOffset += offsetStep;
             mainContainer.css('top', viewParams.topOffset + '%');
 
+        } else if (event.keyCode === S) {
+            viewParams.topOffset -= offsetStep;
+            mainContainer.css('top', viewParams.topOffset + '%');
+
         } else if (event.keyCode === A) {
-            viewParams.leftOffset -= offsetStep;
+            viewParams.leftOffset += offsetStep;
             mainContainer.css('left', viewParams.leftOffset + '%');
 
         } else if (event.keyCode === D) {
-            viewParams.leftOffset += offsetStep;
+            viewParams.leftOffset -= offsetStep;
             mainContainer.css('left', viewParams.leftOffset + '%');
 
         // ctrl + digit from 1 to 9 save current view settings
@@ -83,7 +84,8 @@ let saveView = function (saveId) {
 let loadView = function (saveId) {
     if (saves[saveId]) {
         viewParams = JSON.parse(saves[saveId]);
-        require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+        // require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
+        mainContainer.css('transform', 'scale(' + viewParams.zoomLevel + ')');
         mainContainer.css('top', viewParams.topOffset + '%');
         mainContainer.css('left', viewParams.leftOffset + '%');
     }
