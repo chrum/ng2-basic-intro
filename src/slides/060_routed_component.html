@@ -34,25 +34,25 @@
                                 </ul>
                                 <router-outlet></router-outlet>-->
                                 &lt;ul&gt;<br />
-                                    &lt;li *ngFor="let route of routes"&gt;<br />
-                                        &lt;button
-                                            (click)="go(route)"&gt;{{ route }}
-                                        &lt;/button&gt;
-                                &lt;/li&gt;<br />
+                                  &lt;li *ngFor="let route of routes"&gt;<br />
+                                    &lt;button
+                                      (click)="go(route)"&gt;{{ route }}
+                                    &lt;/button&gt;
+                                  &lt;/li&gt;<br />
                                 &lt;/ul&gt;`,
                             directives: [ROUTER_DIRECTIVES, Dumb]
                         })
                         @RouteConfig([
-                            { path: '/Dumb', as: 'Dumb', component: Dumb },
-                            { path: '/Smart', as: 'Smart', component: Smart }
+                          {path: '/Dumb', as: 'Dumb', component: Dumb},
+                          {path: '/Smart', as: 'Smart', component: Smart}
                         ])
                         class App {
-                            static get parameters () { return [[Router]]; }
-                            constructor(router) {
-                                this.router = router;
-                                this.routes = ['Dumb', 'Smart']
-                            }
-                            go (to) { this.router.navigate(['/' + to]); }
+                          static get parameters () { return [[Router]]; }
+                          constructor(router) {
+                            this.router = router;
+                            this.routes = ['Dumb', 'Smart']
+                          }
+                          go (to) { this.router.navigate(['/' + to]); }
                         }
                     </code>
                 </pre>

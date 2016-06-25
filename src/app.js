@@ -93,11 +93,11 @@ let loadView = function (saveId) {
 
 let slidesLoader = {
     _slidesOrder: [
-        'data_flow',
         'dumb_component',
         'smart_component',
         'routed_component',
-        'component_lifecycle'
+        'component_lifecycle',
+        // 'data_flow',
     ],
     _allSlides: [
         'intro',

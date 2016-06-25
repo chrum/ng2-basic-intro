@@ -29,9 +29,9 @@
                 <pre class="line-numbers" data-start="2">
                     <code>
                         @Component({
-                            selector: 'numbered-row',
-                            inputs:['number', 'text'],
-                            template: '<p>{{ content }}</p>'
+                          selector: 'numbered-row',
+                          inputs:['number', 'text'],
+                          template: '<p>{{ content }}</p>'
                         })
                     </code>
                 </pre>
@@ -41,11 +41,10 @@
                 <pre class="line-numbers" data-start="6">
                     <code>
                         export default class NumberedRow {
-                            constructor () {}
-
-                            ngOnInit () {
-                               this.content = this.number + '. ' + this.text;
-                            }
+                          constructor () {}
+                          ngOnInit () {
+                            this.content = this.number + '. ' + this.text;
+                          }
                         }
                     </code>
                 </pre>

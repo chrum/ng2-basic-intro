@@ -15,31 +15,6 @@
                 <h4>
                     Contains other components, renders them
                 </h4>
-
-                <!--                <div data-jmpress="drive-up after 100 numberedList">
-                                    <pre class="language-markup" >
-                                        <code class="language-markup">
-                    &lt;!&ndash;
-                                            <numbered-list>
-                                                <numbered-row>
-                                                    <p>1. first</p>
-                                                </numbered-row>
-                                                <numbered-row>
-                                                    <p>2. second</p>
-                                                </numbered-row>
-                                            </numbered-list>
-                    &ndash;&gt;
-                                            &lt;numbered-list&gt;<br />
-                                                &lt;numbered-row&gt;<br />
-                                                    &lt;p&gt;1. first&lt;/p&gt;<br />
-                                                &lt;/numbered-row&gt;<br />
-                                                &lt;numbered-row&gt;<br />
-                                                    &lt;p&gt;2. second&lt;/p&gt;<br />
-                                                &lt;/numbered-row&gt;<br />
-                                            &lt;/numbered-list&gt;
-                                        </code>
-                                    </pre>
-                                </div>-->
             </div>
             <div class="pane ">
                 <div data-jmpress="drive-up after prev">
@@ -65,9 +40,9 @@
                                         [number]="(i + 1)"
                                         [text]="item"></numbered-row>-->
                             &lt;numbered-row<br/>
-                            *ngFor="let item of items; let i = index"<br/>
-                            [number]="(i + 1)"<br/>
-                            [text]="item"&gt;&lt;/numbered-row&gt;
+                                *ngFor="let item of items; let i = index"<br/>
+                                [number]="(i + 1)"<br/>
+                                [text]="item"&gt;&lt;/numbered-row&gt;
                             `
                         })
                     </code>
