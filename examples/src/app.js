@@ -11,6 +11,7 @@ import { Dumb } from './examples/dumb.component';
 import { Smart } from './examples/smart.component';
 import { Hooks } from './examples/hooks.component';
 import { DataFlow } from './examples/data-flow.component';
+import { DirectiveExample } from './examples/directive.component';
 
 @Component({
     selector: 'app',
@@ -21,9 +22,10 @@ import { DataFlow } from './examples/data-flow.component';
     { path: '/Dumb', as: 'Dumb', component: Dumb },
     { path: '/Smart', as: 'Smart', component: Smart },
     { path: '/Hooks', as: 'Hooks', component: Hooks },
-    { path: '/Data-flow', as: 'Data-flow', component: DataFlow }
+    { path: '/Data-flow', as: 'Data-flow', component: DataFlow },
+    { path: '/Directive', as: 'Directive', component: DirectiveExample }
 ])
-class App {
+export default class App {
     static get parameters () {
         return [[Router]];
     }
@@ -31,7 +33,7 @@ class App {
         this.router = Router;
 
         this.routes = [
-            'Dumb', 'Smart', 'Hooks', 'Data-flow'
+            'Dumb', 'Smart', 'Hooks', 'Data-flow', 'Directive'
         ]
     }
     go (to) {

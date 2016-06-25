@@ -100,6 +100,7 @@ let slidesLoader = {
         'component_lifecycle',
         'data_flow',
         'data_flow_p2',
+        'directives'
     ],
     _allSlides: [
         'intro',
