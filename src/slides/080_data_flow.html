@@ -10,55 +10,65 @@
                     One way
                 </h4>
                 <h4>
-                    Contains other components, renders them
+                    Data down to child component
                 </h4>
                 <h4>
-                    Route definitions
+                    Events up to parent method
                 </h4>
                 <h4>
                     Inputs carry route data
                 </h4>
             </div>
             <div class="pane" data-jmpress="drive-up after prev">
-                <pre class="line-numbers">
-                    <code>
-                        @Component({
-                            selector: 'app',
-                            template: `<!--
-                                <ul>
-                                    <li *ngFor="let route of routes">
-                                        <button
-                                            (click)="go(route)">{{ route }}
-                                        </button>
-                                    </li>
-                                </ul>
-                                <router-outlet></router-outlet>-->
-                                &lt;ul&gt;<br />
-                                    &lt;li *ngFor="let route of routes"&gt;<br />
-                                        &lt;button
-                                            (click)="go(route)"&gt;{{ route }}
-                                        &lt;/button&gt;
-                                &lt;/li&gt;<br />
-                                &lt;/ul&gt;`,
-                            directives: [ROUTER_DIRECTIVES, Dumb]
-                        })
-                        @RouteConfig([
-                            { path: '/Dumb', as: 'Dumb', component: Dumb },
-                            { path: '/Smart', as: 'Smart', component: Smart }
-                        ])
-                        class App {
-                            static get parameters () { return [[Router]]; }
-                            constructor(router) {
-                                this.router = router;
-                                this.routes = ['Dumb', 'Smart']
+                <div>
+                    <pre class="line-numbers">
+                        <code>
+                            import { EventEmitter } from '@angular/core';
+                            @Component({
+                                selector: 'color-clicker',
+                                inputs: ['colors'],
+                                outputs: ['colorClick'],
+                                template: `<!--<p *ngFor="let color of colors"
+                                              [ngStyle]="{'background-color': color}"
+                                              (click)="onClick(color)">{{ color }}</p>-->
+                                    &lt;p *ngFor="let color of colors"<br />
+                                      [ngStyle]="{'background-color': color}"<br />
+                                      (click)="onClick(color)"&gt;
+                                        {{ color }}
+                                    &lt;/p&gt;`
+                            })
+                            export class ColorClicker {
+                                constructor () {
+                                    this.colorClick = new EventEmitter();
+                                }
+                                onClick (color) {
+                                    this.colorClick.emit(color);
+                                }
                             }
-                            go (to) { this.router.navigate(['/' + to]); }
-                        }
-                    </code>
-                </pre>
+                        </code>
+                    </pre>
+                </div>
+
+                <div data-jmpress="drive-up after prev">
+                    <pre class="language-markup line-numbers">
+                        <code class="language-markup">
+                            <!--
+                                    <color-clicker
+                                        [colors]="colors"
+                                        (colorClick)="onColorClick($event)">
+                                    </color-clicker>
+                            -->
+                                    &lt;color-clicker<br />
+                                        [colors]="colors"<br />
+                                        (colorClick)="onColorClick($event)"&gt;<br />
+                                    &lt;/color-clicker&gt;
+                        </code>
+                    </pre>
+                </div>
             </div>
         </div>
     </div>
+
     <footer class="toolbar toolbar-footer">
         &copy Chrystian Ruminowicz
     </footer>

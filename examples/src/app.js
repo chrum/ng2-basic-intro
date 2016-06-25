@@ -10,6 +10,7 @@ import { Component, ExceptionHandler, } from '@angular/core';
 import { Dumb } from './examples/dumb.component';
 import { Smart } from './examples/smart.component';
 import { Hooks } from './examples/hooks.component';
+import { DataFlow } from './examples/data-flow.component';
 
 @Component({
     selector: 'app',
@@ -19,7 +20,8 @@ import { Hooks } from './examples/hooks.component';
 @RouteConfig([
     { path: '/Dumb', as: 'Dumb', component: Dumb },
     { path: '/Smart', as: 'Smart', component: Smart },
-    { path: '/Hooks', as: 'Hooks', component: Hooks }
+    { path: '/Hooks', as: 'Hooks', component: Hooks },
+    { path: '/Data-flow', as: 'Data-flow', component: DataFlow }
 ])
 class App {
     static get parameters () {
@@ -29,7 +31,7 @@ class App {
         this.router = Router;
 
         this.routes = [
-            'Dumb', 'Smart', 'Hooks'
+            'Dumb', 'Smart', 'Hooks', 'Data-flow'
         ]
     }
     go (to) {
@@ -48,5 +50,5 @@ class MyExceptionHandler {
 bootstrap(App, [
     ROUTER_PROVIDERS,
     provide(LocationStrategy, { useClass: HashLocationStrategy }),
-    {provide: ExceptionHandler, useClass: MyExceptionHandler}
+    // {provide: ExceptionHandler, useClass: MyExceptionHandler}
 ]);

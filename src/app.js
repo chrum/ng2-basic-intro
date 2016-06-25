@@ -97,7 +97,7 @@ let slidesLoader = {
         'smart_component',
         'routed_component',
         'component_lifecycle',
-        // 'data_flow',
+        'data_flow'
     ],
     _allSlides: [
         'intro',
