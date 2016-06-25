@@ -1,0 +1,58 @@
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h2 class="title">Data flow - ng1 vs ng2</h2>
+    </header>
+
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane">
+                <h4>
+                    Angular 1
+                </h4>
+                <table>
+                    <tr data-jmpress="drive-up after prev">
+                        <td>Two way data binding</td>
+                    </tr>
+                    <tr>
+                        <td data-jmpress="drive-left after 500ms">$rootScope.$emit</td>
+                        <td data-jmpress="drive-right after 500ms">$rootScope.$broadcast</td>
+                    </tr>
+                    <tr>
+                        <td data-jmpress="drive-down after 500ms">$scope.$emit</td>
+                        <td data-jmpress="fade after 500ms">$scope.$broadcast</td>
+                    </tr>
+                    <tr>
+                        <td data-jmpress="drive-down after 500ms">=</td>
+                        <td data-jmpress="fade after 500ms">&</td>
+                        <td data-jmpress="fade after 500ms">@</td>
+                    </tr>
+                    <tr data-jmpress="drive-up after prev">
+                        <td>$scope.$on</td>
+                        <td>$scope.$watch</td>
+                        <td>$attrs.$observe</td>
+                    </tr>
+                </table>
+
+                <img data-jmpress="fade after prev" src="imgs/PCB_mess.jpg"
+                    style="height: 380px"/>
+            </div>
+            <div class="pane" data-jmpress="drive-up after prev">
+                <h4>
+                    Angular 2
+                </h4>
+                    <div data-jmpress="drive-up after prev">
+                        <h3>[ INPUT ]="data"</h3>
+                        <h3>( OUTPUT )="handler($event)"</h3>
+                    </div>
+                <img data-jmpress="fade after prev" src="imgs/FPGA.jpg"
+                     style="height: 380px"/>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="toolbar toolbar-footer">
+        &copy Chrystian Ruminowicz
+    </footer>
+</div>
+

@@ -97,7 +97,8 @@ let slidesLoader = {
         'smart_component',
         'routed_component',
         'component_lifecycle',
-        'data_flow'
+        'data_flow',
+        'data_flow_p2',
     ],
     _allSlides: [
         'intro',
@@ -112,7 +113,8 @@ let slidesLoader = {
         'directives',
         'content_projection',
         'template_syntax',
-        'data_flow'
+        'data_flow',
+        'data_flow_p2'
     ],
     _root: null,
     _templates: [],
