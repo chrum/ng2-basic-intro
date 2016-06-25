@@ -93,6 +93,7 @@ let loadView = function (saveId) {
 
 let slidesLoader = {
     _slidesOrder: [
+        'components_general',
         'dumb_component',
         'smart_component',
         'routed_component',
