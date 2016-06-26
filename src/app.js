@@ -100,7 +100,8 @@ let slidesLoader = {
         'component_lifecycle',
         'data_flow',
         'data_flow_p2',
-        'directives'
+        'directives',
+        'template_syntax',
     ],
     _allSlides: [
         'intro',
@@ -113,10 +114,9 @@ let slidesLoader = {
         'routed_component',
         'component_lifecycle',
         'directives',
-        'content_projection',
-        'template_syntax',
         'data_flow',
-        'data_flow_p2'
+        'data_flow_p2',
+        'template_syntax'
     ],
     _root: null,
     _templates: [],

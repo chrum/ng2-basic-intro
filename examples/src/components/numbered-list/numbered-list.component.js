@@ -6,12 +6,7 @@ import { ListData } from './list-data.service';
     selector: 'numbered-list',
     directives: [NumberedRow],
     providers: [ListData],
-    template: `
-    <numbered-row 
-        *ngFor="let item of items; let i = index"
-         [number]="(i + 1)"
-         [text]="item"></numbered-row>
-    `
+    template: require('./numbered-list.html')
 })
 export class NumberedList {
     static get parameters () {

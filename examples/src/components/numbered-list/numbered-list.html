@@ -1,0 +1,22 @@
+<numbered-row
+        *ngFor="let item of items; let i = index"
+        [number]="(i + 1)"
+        [text]="item"></numbered-row>
+<!--<hr>
+<numbered-row
+        template="ngFor let item of items; let i = index"
+        [number]="(i + 1)"
+        [text]="item"></numbered-row>
+<hr>
+<template ngFor let-item [ngForOf]="items" let-i="index">
+    <numbered-row
+            [number]="(i + 1)"
+            [text]="item"></numbered-row>
+</template>
+
+<hr>
+<template ngFor let-item [ngForOf]="items" let-i="index">
+    <numbered-row *ngIf="i%2!==1"
+            [number]="(i + 1)"
+            [text]="item"></numbered-row>
+</template>-->

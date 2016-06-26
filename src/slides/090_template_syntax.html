@@ -1,1 +1,190 @@
-content projection
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h2 class="title">Template syntax</h2>
+    </header>
+
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane">
+                <div data-jmpress="drive-up after prev">
+                    <h4>Attribute directives</h4>
+                    <table>
+                        <tr data-jmpress="drive-up after prev">
+                            <td>ng-class</td>
+                            <td>
+                                <pre>
+                                    <code>
+                                        <!--<span [ngClass]="{ 'someClass': condition }"></span>-->
+                                        <!--<span [class.someClass]="condition"></span>-->
+                                        &lt;span [ngClass]="{ 'someClass': condition }"&gt;&lt;/span&gt;
+                                        &lt;span [class.someClass]="condition"&gt;&lt;/span&gt;
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr data-jmpress="drive-up after prev">
+                            <td>ng-disabled</td>
+                            <td>
+                                <pre>
+                                    <code>
+                                        <!--<button [disabled]="condition"></button>-->
+                                        &lt;button [disabled]="condition"&gt;&lt;/button&gt;
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr data-jmpress="drive-up after prev">
+                            <td>ng-src</td>
+                            <td>
+                                <pre>
+                                    <code>
+                                        <!--<img [src]="'someImage.jpg'"/>-->
+                                        &lt;img [src]="'someImage.jpg'"/&gt;
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr data-jmpress="drive-up after prev">
+                            <td>...</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div data-jmpress="drive-up after prev">
+                    <h4>Event handlers</h4>
+                    <table data-jmpress="fade after prev">
+                        <tr>
+                            <td>ng-focus</td>
+                            <td>
+                                <pre>
+                                    <code>
+                                        <!--<input (focus)="onFocus()"/>-->
+                                        &lt;input (focus)="onFocus()"/&gt;
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ng-blur</td>
+                            <td>
+                                <pre>
+                                    <code>
+                                        <!--<input (blur)="onBlur()"/>-->
+                                        &lt;input (blur)="onBlur()"/&gt;
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>...</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div data-jmpress="drive-up after prev">
+                    <h4>
+                        Two way data binding
+                    </h4>
+                    <pre>
+                        <code>
+                            <!--
+                            <input [(ngModel)]='someValue'/>
+                            -->
+                            &lt;input [(ngModel)]='someValue'/&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="pane" data-jmpress="drive-up after prev">
+                <h4>
+                    Structural directives - ngFor
+                </h4>
+                <pre data-jmpress="drive-up after prev">
+                    <code>
+                        <!--
+                        <numbered-row *ngFor="let item of items; let i = index"
+                            [number]="(i + 1)"
+                            [text]="item"></numbered-row>
+                        -->
+                        &lt;numbered-row *ngFor="let item of items; let i = index"<br />
+                            [number]="(i + 1)"<br />
+                            [text]="item"&gt;&lt;/numbered-row&gt;
+                    </code>
+                </pre>
+                <pre data-jmpress="drive-up after prev">
+                    <code>
+                        <!--
+                        <numbered-row
+                            template="ngFor let item of items; let i = index"
+                            [number]="(i + 1)"
+                            [text]="item"></numbered-row>
+                        -->
+                        &lt;numbered-row<br />
+                            template="ngFor let item of items; let i = index"<br />
+                            [number]="(i + 1)"<br />
+                            [text]="item"&gt;&lt;/numbered-row&gt;
+                    </code>
+                </pre>
+                <div data-jmpress="drive-up after prev" style="text-align: center;">
+                    <pre>
+                        <code>
+                            <!--
+                            <template ngFor let-item [ngForOf]="items" let-i="index">
+                                <numbered-row
+                                        [number]="(i + 1)"
+                                        [text]="item"></numbered-row>
+                            </template>
+                            -->
+                            &lt;template ngFor let-item [ngForOf]="items" let-i="index"&gt;<br />
+                                &lt;numbered-row<br />
+                                        [number]="(i + 1)"<br />
+                                        [text]="item"&gt;&lt;/numbered-row&gt;<br />
+                            &lt;/template&gt;
+                        </code>
+                    </pre>
+                    <strong>? ? ?</strong>
+                </div>
+                <div data-jmpress="drive-up after prev">
+                    <div data-jmpress="crossed after prev">
+                        <pre>
+                            <code>
+                                <!--
+                                <numbered-row *ngFor="let item of items; let i = index"
+                                    *ngIf="i%2!==1"
+                                    [number]="(i + 1)"
+                                    [text]="item"></numbered-row>
+                                -->
+                                &lt;numbered-row *ngFor="let item of items; let i = index"<br />
+                                    *ngIf="i%2!==1"<br />
+                                    [number]="(i + 1)"<br />
+                                    [text]="item"&gt;&lt;/numbered-row&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <pre data-jmpress="fade after prev">
+                    <code>
+                        <!--
+                        <template ngFor let-item [ngForOf]="items" let-i="index">
+                            <numbered-row *ngIf="i%2!==1"
+                                    [number]="(i + 1)"
+                                    [text]="item"></numbered-row>
+                        </template>
+                        -->
+                        &lt;template ngFor let-item [ngForOf]="items" let-i="index"&gt;<br />
+                            &lt;numbered-row *ngIf="i%2!==1"<br />
+                                    [number]="(i + 1)"<br />
+                                    [text]="item"&gt;&lt;/numbered-row&gt;<br />
+                        &lt;/template&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="toolbar toolbar-footer">
+        &copy Chrystian Ruminowicz
+    </footer>
+</div>
+
