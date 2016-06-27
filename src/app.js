@@ -21,6 +21,7 @@ let D = 100;
 let mainContainer = $('#MAIN');
 $(document).ready(function () {
     mainContainer = $('#MAIN');
+    let faqContainer = $('#faq');
     let slidesRoot = $('#slides');
     slidesLoader.init(slidesRoot, () => {
         setTimeout(() => {
@@ -72,10 +73,24 @@ $(document).ready(function () {
         } else if (event.keyCode >= 49 && event.keyCode <= 57) {
             loadView(event.keyCode - 48);
         }
+    });
 
+    window.addEventListener('keydown', (event) => {
+        if (event.keyCode ===  191 ) {
+            faqContainer.css('opacity','1');
+            faqVisibility = true;
+        }
+    });
 
-    })
+    window.addEventListener('keyup', (event) => {
+        if (event.keyCode ===  191 ) {
+            faqContainer.css('opacity','0');
+            faqVisibility = false;
+        }
+    });
 });
+
+
 
 let saveView = function (saveId) {
     saves[saveId] = JSON.stringify(viewParams);
@@ -103,7 +118,7 @@ let slidesLoader = {
         'data_flow',
         'data_flow_p2',
         'directives',
-        'template_syntax',
+        'template_syntax'
     ],
     _allSlides: [
         'intro',

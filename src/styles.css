@@ -7,6 +7,19 @@ body {
     overflow: hidden;
 }
 
+#faq {
+    position: absolute;
+    font-weight: 300;
+    font-size: 1.6em;
+    background-color: rgba(21, 64, 96, 0.96);
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 10% 40%;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
 #MAIN {
     position: absolute;
     left: 0%;
