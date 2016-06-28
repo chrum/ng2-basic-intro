@@ -77,6 +77,7 @@ $(document).ready(function () {
 
     window.addEventListener('keydown', (event) => {
         if (event.keyCode ===  191 ) {
+            faqContainer.css('z-index','1');
             faqContainer.css('opacity','1');
             faqVisibility = true;
         }
@@ -85,6 +86,9 @@ $(document).ready(function () {
     window.addEventListener('keyup', (event) => {
         if (event.keyCode ===  191 ) {
             faqContainer.css('opacity','0');
+            setTimeout(() => {
+                faqContainer.css('z-index','-1')
+            }, 200);
             faqVisibility = false;
         }
     });
@@ -118,22 +122,28 @@ let slidesLoader = {
         'data_flow',
         'data_flow_p2',
         'directives',
-        'template_syntax'
+        'template_syntax',
+        'zones',
+        'observables',
+        'tc39',
+        'angular_platform'
     ],
     _allSlides: [
         'intro',
-        'about_me',
         'agenda',
         'components_general',
-        'components_types',
         'dumb_component',
         'smart_component',
         'routed_component',
         'component_lifecycle',
-        'directives',
         'data_flow',
         'data_flow_p2',
-        'template_syntax'
+        'directives',
+        'template_syntax',
+        'zones',
+        'observables',
+        'tc39',
+        'angular_platform'
     ],
     _root: null,
     _templates: [],

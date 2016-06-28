@@ -1,0 +1,43 @@
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h2 class="title">Zones</h2>
+    </header>
+
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane">
+                <pre class="line-numbers" data-start="19473">
+                    <code>
+                        ...
+                        let STEP = 10;
+                        updateProgressBar(callback) {
+                            this.progress += STEP;
+
+                            if (this.progress < 100) {
+                                setTimeout(() => {
+                                    this.updateProgressBar(callback);
+                                }, 200);
+
+                            } else {
+                                callback();
+                            }
+                        }
+                        ...
+                    </code>
+                </pre>
+            </div>
+            <div class="pane" data-jmpress="fade after prev" style="text-align: center;">
+                <div data-jmpress="crossed after prev" style=" margin-top: 30%">
+                    <h4>$timeout</h4>
+                    <h4>$apply</h4>
+                    <h4>$digest</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="toolbar toolbar-footer">
+        &copy Chrystian Ruminowicz
+    </footer>
+</div>
+

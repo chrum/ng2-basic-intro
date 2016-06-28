@@ -1,0 +1,45 @@
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h2 class="title">Observables</h2>
+    </header>
+
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane">
+                <h4>Callbacks</h4>
+                <h4>Promises</h4>
+                <h4>Observables</h4>
+                <pre class="line-numbers">
+                    <code>
+                        ...
+                        let url = 'http://jsonplaceholder.typicode.com'
+                        url += '/users';
+                        let observable = http.get(url);
+                    </code>
+                </pre>
+                <pre class="line-numbers" data-jmpress="drive-up after prev" data-start="5">
+                    <code>
+                        observable.subscribe((response) => {
+                            console.log('Done');
+                        });
+                        ...
+                    </code>
+                </pre>
+            </div>
+            <div class="pane" data-jmpress="fade after prev">
+                <h4>
+                    <ul>
+                        <li>Lazy, fire if there is someone watching</li>
+                        <li>Cancellable</li>
+                        <li>Retryable</li>
+                    </ul>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <footer class="toolbar toolbar-footer">
+        &copy Chrystian Ruminowicz
+    </footer>
+</div>
+
