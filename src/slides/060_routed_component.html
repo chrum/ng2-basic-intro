@@ -39,8 +39,9 @@
                                       (click)="go(route)"&gt;{{ route }}
                                     &lt;/button&gt;
                                   &lt;/li&gt;<br />
-                                &lt;/ul&gt;`,
-                            directives: [ROUTER_DIRECTIVES, Dumb]
+                                &lt;/ul&gt;
+                                &lt;router-outlet&gt;&lt;/router-outlet&gt;`,
+                            directives: [ROUTER_DIRECTIVES, Dumb, Smart]
                         })
                         @RouteConfig([
                           {path: '/Dumb', as: 'Dumb', component: Dumb},
