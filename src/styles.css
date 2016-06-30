@@ -3,6 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     min-height: 740px;
     background-color: #263238;
+    color: #000;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
 }
@@ -15,8 +16,7 @@ body {
     color: #fff;
     height: 100%;
     width: 100%;
-    padding: 10% 40%;
-    display: none;
+    padding: 10% 30%;
     opacity: 0;
     transition: opacity 0.5s;
     z-index: -1;
@@ -62,19 +62,20 @@ body {
 }
 
 .logoContainer{
-text-align: center;
+    text-align: center;
     height: 480px;
-    margin-top: 0px;
+
 }
 
 .angularLogo{
     height: 480px;
 }
-.angularLogoDescrip{
+.angularTitle {
    font-size: 3em;
    text-transform: uppercase;
     font-weight: 600;
     line-height: 0em;
+    text-align: center;
 }
 
 .title {

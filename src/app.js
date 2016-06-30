@@ -39,7 +39,7 @@ $(document).ready(function () {
 
 
     window.addEventListener('keypress', (event) => {
-        console.log(event.keyCode);
+    //    console.log(event.keyCode);
         if (zoomInCodes.indexOf(event.keyCode) > -1) {
             viewParams.zoomLevel += zoomStep;
             // require('electron').webFrame.setZoomFactor(viewParams.zoomLevel);
@@ -67,13 +67,14 @@ $(document).ready(function () {
             mainContainer.css('left', viewParams.leftOffset + '%');
 
         // ctrl + digit from 1 to 9 save current view settings
-        } else if (event.keyCode >= 17 && event.keyCode <= 25) {
+        } else if (event.keyCode >= 17 && event.keyCode <= 25  && event.ctrlKey) {
             saveView(event.keyCode - 16);
 
-        // digit from 1 to 9 loads saved view settings
+            // digit from 1 to 9 loads saved view settings
         } else if (event.keyCode >= 49 && event.keyCode <= 57) {
             loadView(event.keyCode - 48);
-
+        } else if (event.keyCode >= 49 && event.keyCode <= 57) {
+            loadView(event.keyCode - 48);
         }
         // else if (event.keyCode === 91) {
         //     // viewParams.zoomLevel += zoomStep;
@@ -88,19 +89,24 @@ $(document).ready(function () {
     });
 
     window.addEventListener('keydown', (event) => {
-        if (event.keyCode ===  191 ) {
+
+        if (event.keyCode === 191 ) {
             faqContainer.css('z-index','1');
             faqContainer.css('opacity','1');
         }
     });
 
     window.addEventListener('keyup', (event) => {
-        if (event.keyCode ===  191 ) {
+        if (event.keyCode === 191 ) {
             faqContainer.css('opacity','0');
             setTimeout(() => {
                 faqContainer.css('z-index','-1')
             }, 200);
-            faqVisibility = false;
+            // faqVisibility = false;
+        } else if (event.keyCode >= 49 && event.keyCode <= 57 && event.ctrlKey) {
+            console.log(event.keyCode);
+            saveView(event.keyCode - 48);
+            // digit from 1 to 9 loads saved view settings
         }
     });
 });
