@@ -9,6 +9,7 @@ let viewParams = {
 let zoomStep = 0.2;
 let offsetStep = 2;
 let saves = {};
+let thumbnailState = false;
 
 // Keys affecting zoom level and panning the view
 let zoomInCodes = [43, 9]; // + and ctrl+i
@@ -72,14 +73,24 @@ $(document).ready(function () {
         // digit from 1 to 9 loads saved view settings
         } else if (event.keyCode >= 49 && event.keyCode <= 57) {
             loadView(event.keyCode - 48);
+
         }
+        // else if (event.keyCode === 91) {
+        //     // viewParams.zoomLevel += zoomStep;
+        //     mainContainer.css('transform', 'scale(0.2,0.2)');
+        //     thumbnailState = true;
+        // } else if (event.keyCode === 93) {
+        //     // viewParams.zoomLevel += zoomStep;
+        //     mainContainer.css('transform', 'scale(' + viewParams.zoomLevel + ')');
+        //     thumbnailState = false
+        // }
+
     });
 
     window.addEventListener('keydown', (event) => {
         if (event.keyCode ===  191 ) {
             faqContainer.css('z-index','1');
             faqContainer.css('opacity','1');
-            faqVisibility = true;
         }
     });
 

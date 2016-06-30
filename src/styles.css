@@ -2,7 +2,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     min-height: 740px;
-    background-color: #154060;
+    background-color: #263238;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
 }
@@ -11,11 +11,12 @@ body {
     position: absolute;
     font-weight: 300;
     font-size: 1.6em;
-    background-color: rgba(21, 64, 96, 0.96);
+    background-color: rgba(38, 50, 56, 0.96);
     color: #fff;
     height: 100%;
     width: 100%;
     padding: 10% 40%;
+    display: none;
     opacity: 0;
     transition: opacity 0.5s;
     z-index: -1;
@@ -35,7 +36,7 @@ body {
 }
 
 .toolbar-header {
-    background-color: #4cb050;
+    background-color: #1976d2;
     background-image: none;
     box-shadow: none;
     letter-spacing: 1px;
@@ -46,7 +47,7 @@ body {
 .toolbar-footer {
     height: 30px;
     color: #fff;
-    background-color:  #154060;
+    background-color:  #263238;
     letter-spacing: 1px;
     text-align: center;
     padding-top: 10px;
@@ -60,6 +61,21 @@ body {
     box-shadow: none;
 }
 
+.logoContainer{
+text-align: center;
+    height: 480px;
+    margin-top: 0px;
+}
+
+.angularLogo{
+    height: 480px;
+}
+.angularLogoDescrip{
+   font-size: 3em;
+   text-transform: uppercase;
+    font-weight: 600;
+    line-height: 0em;
+}
 
 .title {
     color: #fff;
