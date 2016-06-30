@@ -124,6 +124,7 @@ let loadView = function (saveId) {
 let slidesLoader = {
     _slidesOrder: [
         'intro',
+        'about_me',
         'agenda',
         'components_general',
         'dumb_component',
