@@ -67,12 +67,6 @@ $(document).ready(function () {
             mainContainer.css('left', viewParams.leftOffset + '%');
 
         // ctrl + digit from 1 to 9 save current view settings
-        } else if (event.keyCode >= 17 && event.keyCode <= 25  && event.ctrlKey) {
-            saveView(event.keyCode - 16);
-
-            // digit from 1 to 9 loads saved view settings
-        } else if (event.keyCode >= 49 && event.keyCode <= 57) {
-            loadView(event.keyCode - 48);
         } else if (event.keyCode >= 49 && event.keyCode <= 57) {
             loadView(event.keyCode - 48);
         }

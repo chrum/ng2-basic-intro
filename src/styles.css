@@ -8,6 +8,17 @@ body {
     overflow: hidden;
 }
 
+ul {
+    list-style-image: url('../imgs/list.png');
+    list-style-position: inside;
+}
+
+ul li {
+
+    /*background: #cce5ff;*/
+    margin: 5px;
+}
+
 #faq {
     position: absolute;
     font-weight: 300;
@@ -16,7 +27,7 @@ body {
     color: #fff;
     height: 100%;
     width: 100%;
-    padding: 10% 30%;
+    padding: 6% 28%;
     opacity: 0;
     transition: opacity 0.5s;
     z-index: -1;
